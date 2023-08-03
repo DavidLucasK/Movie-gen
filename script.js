@@ -17,7 +17,12 @@ async function getMovies() {
 
 }
 
-//pega filmes somente de comédia e romance
+/* Função para pegar filmes somente de comédia e romance
+   Legenda :   %20 = Espaço
+               %2C = Vírgula
+                35 = Comédia
+             10749 = Romance
+*/
 async function getMoviesRomanceComedy() {
   const options = {
     method: 'GET',
@@ -28,7 +33,7 @@ async function getMoviesRomanceComedy() {
   };
 
   try {
-    return fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=pt-BR&&page=' + numberRandom(1, 10) + '&with_genres=10749', options)
+    return fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=pt-BR&&page=' + numberRandom(1, 10) + '&sort_by=vote_count.desc&vote_average.gte=7&with_genres=35%20%2C%2010749', options)
       .then(response => response.json())
   } catch(error) {
     console.log(error)
@@ -36,7 +41,7 @@ async function getMoviesRomanceComedy() {
 
 }
 
-// puxar informações extras do filme
+// Pega informações extras do filme
 // https://api.themoviedb.org/3/movie/{movie_id}
 async function getMoreInfo(id) {
   const options = {
@@ -48,14 +53,14 @@ async function getMoreInfo(id) {
   };
 
   try {
-    return fetch('https://api.themoviedb.org/3/movie/' + id, options)
+    return fetch('https://api.themoviedb.org/3/movie/' + id +'?language=pt-BR', options)
     .then(response => response.json())
   } catch (error) {
     console.log(error)
   }
 }
 
-// quando clicar no botão de assistir trailer
+// Função para assistir trailer no Youtube
 // https://api.themoviedb.org/3/movie/{movie_id}/videos
 async function watch(e) {
   const movie_id = e.currentTarget.dataset.id
@@ -84,6 +89,7 @@ async function watch(e) {
   
 }
 
+// Função que cria o layout de cada 'movie' a partir das variáveis
 function createMovieLayout({
   id,
   genre,
@@ -176,7 +182,7 @@ async function start() {
       time: minutesToHourMinutesAndSeconds(info.runtime),
       year: info.release_date.slice(0, 4)
     }
-
+    console.log(props)
     return createMovieLayout(props)
   })
 
