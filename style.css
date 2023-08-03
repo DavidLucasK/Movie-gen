@@ -175,6 +175,13 @@ header .icone i {
     transform: scale(1.03);
 }
 
+.made p{
+    color: #190555;
+    position: absolute;
+    margin-left: 15rem;
+    margin-top: 31rem;
+}
+
 
 @keyframes gradient {
 
