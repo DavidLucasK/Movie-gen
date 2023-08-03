@@ -9,7 +9,26 @@ async function getMovies() {
   };
 
   try {
-    return fetch('https://api.themoviedb.org/3/movie/popular?language=pt-BR', options)
+    return fetch('https://api.themoviedb.org/3/movie/popular?language=pt-BR&page=' + numberRandom(1, 10) + '&sort_by=vote_count.desc&vote_average.gte=7', options)
+      .then(response => response.json())
+  } catch(error) {
+    console.log(error)
+  }
+
+}
+
+//pega filmes somente de comédia e romance
+async function getMoviesRomanceComedy() {
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYmU0YzZkNGYyYTQ2YzY3ZTczYmM1MDgzNWU0YjY2MiIsInN1YiI6IjY0Y2IxMzBmNzA2ZTU2MDE0ZWMzZThhNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1hXwniJ4G1OXopv24yN6A3uJnjLAatmHOxChrpp3W_g'
+    }
+  };
+
+  try {
+    return fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=pt-BR&&page=' + numberRandom(1, 10) + '&with_genres=10749', options)
       .then(response => response.json())
   } catch(error) {
     console.log(error)
@@ -67,6 +86,7 @@ async function watch(e) {
 
 function createMovieLayout({
   id,
+  genre,
   title,
   stars,
   image,
@@ -103,7 +123,7 @@ function createMovieLayout({
       </div>
     </div>
 
-    <button onclick="watch(event)" data-id="${id}">
+    <button onclick="watch(event)" data-id="${id}" data-genre="${genre}">
       <img src="./assets/icons/Play.svg" alt="">
 
       <span>Assistir Trailer</span>
@@ -112,7 +132,8 @@ function createMovieLayout({
   `
 }
 
-function select3Videos(results) {
+// Função que seleciona 5 filmes na API
+function select5Videos(results) {
   const random = ()=> Math.floor(Math.random() * results.length)
 
   let selectedVideos = new Set()
@@ -123,17 +144,26 @@ function select3Videos(results) {
   return [...selectedVideos]
 }
 
+// Função que pega um numero aleatório entre dois números para usar como número da página de busca dos filmes
+function numberRandom(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Função para transformar tempo de minutos em Horas:Minutos:Segundos
 function minutesToHourMinutesAndSeconds(minutes) {
   const date = new Date(null)
   date.setMinutes(minutes)
   return date.toISOString().slice(11, 19)
 }
 
+// Função que inicia o site
 async function start() {
   // pegar as sugestões de filmes da API
   const { results } = await getMovies()
-  // pegar randomicamente 3 filmes para sugestão
-  const best3 = select3Videos(results).map(async movie => {
+  // pegar randomicamente 5 filmes para sugestão
+  const best3 = select5Videos(results).map(async movie => {
     // pegar informações extras do 3 filmes
     const info = await getMoreInfo(movie)
 
@@ -153,7 +183,7 @@ async function start() {
   const output = await Promise.all(best3)
   
   
-  // substituir o conteúdo dos movies lá no html
+  // Substitue o conteúdo dos movies no arquivo HTML
   document.querySelector('.movies').innerHTML = output.join("")
 }
 
