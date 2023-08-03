@@ -127,10 +127,11 @@ header .icone i {
     font-style: normal;
     font-weight: 600;
     line-height: 14.408px;
+    gap: 16px;
 }
 
 .title span {
-    max-width: 140px;
+    max-width: 100px;
     overflow: hidden;
     color: #FFF;
     text-overflow: ellipsis;
