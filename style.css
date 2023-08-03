@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 
 body {
@@ -11,7 +12,9 @@ body {
     justify-content: center;
     align-items: center;
     color: #ffffff;
-    background: var(--gradientes-gradiente-hover, linear-gradient(90deg, #9F55FF 0%, #FF46B9 100%));
+    animation: gradient 10s ease infinite;
+    background: linear-gradient(90deg, #190555, #340ea5, #7b30d0, #190555) no-repeat;
+    background-size: 200% 200%;
     font-family: 'Outfit', sans-serif;
 }
 
@@ -34,7 +37,7 @@ button {
 .card::before {
     content: "";
     position: absolute;
-    background: linear-gradient(120deg, #c497ff 30%, #9947ff 100%);
+    background: linear-gradient(120deg, #9348f5 30%, #6b26be 100%);
     padding: 8px;
     width: 100%;
     height: 100%;
@@ -48,7 +51,7 @@ button {
 .container {
     display: flex;
     flex-direction: column;
-    max-width: 654px;
+    max-width: 1154px;
 }
 
 header {
@@ -56,14 +59,6 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 36px;
-}
-header .icone img {
-    position: absolute;
-}
-
-header .icone i {
-    position: relative;
-    padding: 5px 8px;
 }
 
 header button {
@@ -74,11 +69,27 @@ header button {
     gap: 8px;
     padding: 8px 16px;
     border-radius: 4px;
-    background: var(--gradientes-gradiente-normal, linear-gradient(90deg, #8323FF 0%, #FF2DAF 100%));
+    background: linear-gradient(90deg, #8323FF 0%, #FF2DAF 100%);
     color: #FFF;
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
+    transition: 0.3s ease-in-out;
+    opacity: 85%;
+}
+
+header button:hover{
+    opacity: 100%;
+    transform: scale(1.05);
+}
+
+header .icone img {
+    position: absolute;
+    margin-top: -7px;
+}
+
+header .icone i {
+    margin: 8px;
 }
 
 .movies {
@@ -155,5 +166,33 @@ header button {
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 20px; /* 125% */
+    line-height: 20px;
+    transition: 0.2s ease-in-out;
+}
+
+.movie button:hover {
+    background: #373745;
+    transform: scale(1.03);
+}
+
+
+@keyframes gradient {
+
+    0% {
+      background-position: 0 50%;
+    }
+  
+    50% {
+      background-position: 100% 50%;
+    }
+  
+    100% {
+      background-position: 0 50%;
+    }
+}
+
+@keyframes gerar {
+    to {
+        transform: rotate(180deg);
+    }
 }
