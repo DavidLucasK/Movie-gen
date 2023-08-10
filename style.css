@@ -3,7 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     user-select: none;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 body {
@@ -178,10 +178,10 @@ header .icone i {
 }
 
 .made p{
-    color: #190555;
-    position: absolute;
-    margin-left: 140px;
-    margin-top: 445px;
+    color: #a68eec;
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
 
 

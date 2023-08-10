@@ -22,6 +22,7 @@ async function getMovies() {
                %2C = Vírgula
                 35 = Comédia
              10749 = Romance
+             
 */
 async function getMoviesRomanceComedy() {
   const options = {
