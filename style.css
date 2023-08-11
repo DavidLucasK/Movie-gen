@@ -3,7 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     user-select: none;
-    /*overflow: hidden;*/
+    overflow: hidden;
 }
 
 body {
@@ -62,14 +62,60 @@ header {
     margin-bottom: 36px;
 }
 
-header button {
+header button.gen {
+    width: 220px;
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: #4f4f4f;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    opacity: 85%;
+    transition: 0.3s ease-in-out;
+}
+
+button.gen:hover {
+    filter: brightness(120%);
+}
+
+.gen-option:hover .menugens{
+    opacity: 100%;
+    display: inline-grid;
+}
+
+.menugens {
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+
+.menugens a{
+    background-color: #4f4f4f;
+    color: #ffffff;
+    text-decoration: none;
+    width: 100px;
+}
+
+.menugens a:hover{
+    color: #000000;
+    width: 100px;
+    filter: brightness(140%);
+}
+
+header button.start {
     width: 220px;
     height: 48px;
     display: flex;
     align-items: center;
     gap: 8px;
     padding: 8px 16px;
-    border-radius: 4px;
+    border-radius: 8px;
     background: linear-gradient(90deg, #8323FF 0%, #FF2DAF 100%);
     color: #FFF;
     font-size: 16px;
@@ -79,9 +125,9 @@ header button {
     opacity: 85%;
 }
 
-header button:hover{
+header button.start:hover{
     opacity: 100%;
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 header .icone img {
@@ -103,6 +149,12 @@ header .icone i {
     flex-direction: column;
     gap: 8px;
     max-width: 194px;
+}
+
+.poster .img-load {
+    width: 194px;
+    height: 289px;
+    background-color: rgb(73, 73, 73);
 }
 
 .title, 
@@ -127,7 +179,6 @@ header .icone i {
     font-style: normal;
     font-weight: 600;
     line-height: 14.408px;
-    gap: 16px;
 }
 
 .title span {
