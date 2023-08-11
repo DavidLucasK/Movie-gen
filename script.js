@@ -196,7 +196,7 @@ async function getMoviesRomance() {
 
 }
 
-// Romance
+// Animação
 async function getMoviesAnimation() {
   const options = {
     method: 'GET',
@@ -208,6 +208,25 @@ async function getMoviesAnimation() {
 
   try {
     return fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=pt-BR&&page=' + numberRandom(1, 10) + '&sort_by=vote_count.desc&vote_average.gte=7&with_genres=16', options)
+      .then(response => response.json())
+  } catch(error) {
+    console.log(error)
+  }
+
+}
+
+// Drama
+async function getMoviesDrama() {
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYmU0YzZkNGYyYTQ2YzY3ZTczYmM1MDgzNWU0YjY2MiIsInN1YiI6IjY0Y2IxMzBmNzA2ZTU2MDE0ZWMzZThhNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1hXwniJ4G1OXopv24yN6A3uJnjLAatmHOxChrpp3W_g'
+    }
+  };
+
+  try {
+    return fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=pt-BR&&page=' + numberRandom(1, 10) + '&sort_by=vote_count.desc&vote_average.gte=7&with_genres=18', options)
       .then(response => response.json())
   } catch(error) {
     console.log(error)
@@ -386,6 +405,36 @@ async function startRomance() {
 async function startAnimation() {
   // pegar as sugestões de filmes da API
   const { results } = await getMoviesAnimation()
+  // pegar randomicamente 5 filmes para sugestão
+  const best5 = select5Videos(results).map(async movie => {
+  // pegar informações extras do 5 filmes
+  const info = await getMoreInfo(movie)
+
+  // organizar os dados para ...
+    const props = {
+      id: info.id,
+      genre: info.genres[0],
+      title: info.title,
+      stars: Number(info.vote_average).toFixed(1),
+      image: info.poster_path,
+      time: minutesToHourMinutesAndSeconds(info.runtime),
+      year: info.release_date.slice(0, 4)
+    }
+    console.log(props)
+    return createMovieLayout(props)
+  })
+
+  const output = await Promise.all(best5)
+  
+  
+  // Substitue o conteúdo dos movies no arquivo HTML
+  document.querySelector('.movies').innerHTML = output.join("")
+}
+
+// Função que inicia o site
+async function startDrama() {
+  // pegar as sugestões de filmes da API
+  const { results } = await getMoviesDrama()
   // pegar randomicamente 5 filmes para sugestão
   const best5 = select5Videos(results).map(async movie => {
   // pegar informações extras do 5 filmes
