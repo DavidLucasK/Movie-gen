@@ -24,7 +24,7 @@ async function getMovies() {
              10749 = Romance
              
 */
-async function getMoviesRomanceComedy() {
+async function getMoviesFilter() {
   const options = {
     method: 'GET',
     headers: {
@@ -34,7 +34,7 @@ async function getMoviesRomanceComedy() {
   };
 
   try {
-    return fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=pt-BR&&page=' + numberRandom(1, 10) + '&sort_by=vote_count.desc&vote_average.gte=7&with_genres=35%20%2C%2010749', options)
+    return fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=pt-BR&&page=' + numberRandom(1, 10) + '&sort_by=vote_count.desc&vote_average.gte=7&with_genres=16', options)
       .then(response => response.json())
   } catch(error) {
     console.log(error)
@@ -139,6 +139,82 @@ function createMovieLayout({
   `
 }
 
+// Comedia
+async function getMoviesComedy() {
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYmU0YzZkNGYyYTQ2YzY3ZTczYmM1MDgzNWU0YjY2MiIsInN1YiI6IjY0Y2IxMzBmNzA2ZTU2MDE0ZWMzZThhNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1hXwniJ4G1OXopv24yN6A3uJnjLAatmHOxChrpp3W_g'
+    }
+  };
+
+  try {
+    return fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=pt-BR&&page=' + numberRandom(1, 10) + '&sort_by=vote_count.desc&vote_average.gte=7&with_genres=35', options)
+      .then(response => response.json())
+  } catch(error) {
+    console.log(error)
+  }
+
+}
+
+// Comedia
+async function getMoviesAction() {
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYmU0YzZkNGYyYTQ2YzY3ZTczYmM1MDgzNWU0YjY2MiIsInN1YiI6IjY0Y2IxMzBmNzA2ZTU2MDE0ZWMzZThhNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1hXwniJ4G1OXopv24yN6A3uJnjLAatmHOxChrpp3W_g'
+    }
+  };
+
+  try {
+    return fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=pt-BR&&page=' + numberRandom(1, 10) + '&sort_by=vote_count.desc&vote_average.gte=7&with_genres=28', options)
+      .then(response => response.json())
+  } catch(error) {
+    console.log(error)
+  }
+
+}
+
+// Romance
+async function getMoviesRomance() {
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYmU0YzZkNGYyYTQ2YzY3ZTczYmM1MDgzNWU0YjY2MiIsInN1YiI6IjY0Y2IxMzBmNzA2ZTU2MDE0ZWMzZThhNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1hXwniJ4G1OXopv24yN6A3uJnjLAatmHOxChrpp3W_g'
+    }
+  };
+
+  try {
+    return fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=pt-BR&&page=' + numberRandom(1, 10) + '&sort_by=vote_count.desc&vote_average.gte=7&with_genres=10749', options)
+      .then(response => response.json())
+  } catch(error) {
+    console.log(error)
+  }
+
+}
+
+// Romance
+async function getMoviesAnimation() {
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYmU0YzZkNGYyYTQ2YzY3ZTczYmM1MDgzNWU0YjY2MiIsInN1YiI6IjY0Y2IxMzBmNzA2ZTU2MDE0ZWMzZThhNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1hXwniJ4G1OXopv24yN6A3uJnjLAatmHOxChrpp3W_g'
+    }
+  };
+
+  try {
+    return fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=pt-BR&&page=' + numberRandom(1, 10) + '&sort_by=vote_count.desc&vote_average.gte=7&with_genres=16', options)
+      .then(response => response.json())
+  } catch(error) {
+    console.log(error)
+  }
+
+}
+
 // Função que seleciona 5 filmes na API
 function select5Videos(results) {
   const random = ()=> Math.floor(Math.random() * results.length)
@@ -165,18 +241,38 @@ function minutesToHourMinutesAndSeconds(minutes) {
   return date.toISOString().slice(11, 19)
 }
 
+//Função que pega os generos
+
+async function getGenre() {
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYmU0YzZkNGYyYTQ2YzY3ZTczYmM1MDgzNWU0YjY2MiIsInN1YiI6IjY0Y2IxMzBmNzA2ZTU2MDE0ZWMzZThhNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1hXwniJ4G1OXopv24yN6A3uJnjLAatmHOxChrpp3W_g'
+    }
+  };
+
+  try {
+    return fetch('https://api.themoviedb.org/3/genre/movie/list?language=pt', options)
+    .then(response => response.json())
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 // Função que inicia o site
 async function start() {
   // pegar as sugestões de filmes da API
   const { results } = await getMovies()
   // pegar randomicamente 5 filmes para sugestão
-  const best3 = select5Videos(results).map(async movie => {
-    // pegar informações extras do 3 filmes
-    const info = await getMoreInfo(movie)
+  const best5 = select5Videos(results).map(async movie => {
+  // pegar informações extras do 5 filmes
+  const info = await getMoreInfo(movie)
 
-    // organizar os dados para ...
+  // organizar os dados para ...
     const props = {
       id: info.id,
+      genre: info.genres[0],
       title: info.title,
       stars: Number(info.vote_average).toFixed(1),
       image: info.poster_path,
@@ -187,7 +283,7 @@ async function start() {
     return createMovieLayout(props)
   })
 
-  const output = await Promise.all(best3)
+  const output = await Promise.all(best5)
   
   
   // Substitue o conteúdo dos movies no arquivo HTML
@@ -195,3 +291,123 @@ async function start() {
 }
 
 start()
+
+// Função que inicia o site
+async function startComedy() {
+  // pegar as sugestões de filmes da API
+  const { results } = await getMoviesComedy()
+  // pegar randomicamente 5 filmes para sugestão
+  const best5 = select5Videos(results).map(async movie => {
+  // pegar informações extras do 5 filmes
+  const info = await getMoreInfo(movie)
+
+  // organizar os dados para ...
+    const props = {
+      id: info.id,
+      genre: info.genres[0],
+      title: info.title,
+      stars: Number(info.vote_average).toFixed(1),
+      image: info.poster_path,
+      time: minutesToHourMinutesAndSeconds(info.runtime),
+      year: info.release_date.slice(0, 4)
+    }
+    console.log(props)
+    return createMovieLayout(props)
+  })
+
+  const output = await Promise.all(best5)
+  
+  
+  // Substitue o conteúdo dos movies no arquivo HTML
+  document.querySelector('.movies').innerHTML = output.join("")
+}
+
+// Função que inicia o site
+async function startAction() {
+  // pegar as sugestões de filmes da API
+  const { results } = await getMoviesAction()
+  // pegar randomicamente 5 filmes para sugestão
+  const best5 = select5Videos(results).map(async movie => {
+  // pegar informações extras do 5 filmes
+  const info = await getMoreInfo(movie)
+
+  // organizar os dados para ...
+    const props = {
+      id: info.id,
+      genre: info.genres[0],
+      title: info.title,
+      stars: Number(info.vote_average).toFixed(1),
+      image: info.poster_path,
+      time: minutesToHourMinutesAndSeconds(info.runtime),
+      year: info.release_date.slice(0, 4)
+    }
+    console.log(props)
+    return createMovieLayout(props)
+  })
+
+  const output = await Promise.all(best5)
+  
+  
+  // Substitue o conteúdo dos movies no arquivo HTML
+  document.querySelector('.movies').innerHTML = output.join("")
+}
+
+// Função que inicia o site
+async function startRomance() {
+  // pegar as sugestões de filmes da API
+  const { results } = await getMoviesRomance()
+  // pegar randomicamente 5 filmes para sugestão
+  const best5 = select5Videos(results).map(async movie => {
+  // pegar informações extras do 5 filmes
+  const info = await getMoreInfo(movie)
+
+  // organizar os dados para ...
+    const props = {
+      id: info.id,
+      genre: info.genres[0],
+      title: info.title,
+      stars: Number(info.vote_average).toFixed(1),
+      image: info.poster_path,
+      time: minutesToHourMinutesAndSeconds(info.runtime),
+      year: info.release_date.slice(0, 4)
+    }
+    console.log(props)
+    return createMovieLayout(props)
+  })
+
+  const output = await Promise.all(best5)
+  
+  
+  // Substitue o conteúdo dos movies no arquivo HTML
+  document.querySelector('.movies').innerHTML = output.join("")
+}
+
+// Função que inicia o site
+async function startAnimation() {
+  // pegar as sugestões de filmes da API
+  const { results } = await getMoviesAnimation()
+  // pegar randomicamente 5 filmes para sugestão
+  const best5 = select5Videos(results).map(async movie => {
+  // pegar informações extras do 5 filmes
+  const info = await getMoreInfo(movie)
+
+  // organizar os dados para ...
+    const props = {
+      id: info.id,
+      genre: info.genres[0],
+      title: info.title,
+      stars: Number(info.vote_average).toFixed(1),
+      image: info.poster_path,
+      time: minutesToHourMinutesAndSeconds(info.runtime),
+      year: info.release_date.slice(0, 4)
+    }
+    console.log(props)
+    return createMovieLayout(props)
+  })
+
+  const output = await Promise.all(best5)
+  
+  
+  // Substitue o conteúdo dos movies no arquivo HTML
+  document.querySelector('.movies').innerHTML = output.join("")
+}
