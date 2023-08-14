@@ -267,10 +267,6 @@ header .icone i {
 
 /* Estilos do carrossel apenas para dispositivos móveis */
 @media (max-width: 768px) {
-    
-    .container {
-        transform: scale(1.10);
-    }
 
     header {
         display: inline-block;
