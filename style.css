@@ -269,12 +269,11 @@ header .icone i {
     header .logo {
         display: flex;
         justify-content: end;
-        background-color: green;
+        background-color: blue;
     }
 
     .movies {
         display: flex;
-        gap: 4rem;
         flex-wrap: nowrap;
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
@@ -282,6 +281,7 @@ header .icone i {
 
     .movie {
         flex: 0 0 100%;
+        margin-left: 50px;
         scroll-snap-align: start;
     }
 
