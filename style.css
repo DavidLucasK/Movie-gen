@@ -109,26 +109,30 @@ button.gen:hover {
     cursor: pointer;
 }
 
-header button.start {
-    width: 220px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    border-radius: 8px;
-    background: linear-gradient(90deg, #8323FF 0%, #FF2DAF 100%);
-    color: #FFF;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20px;
-    transition: 0.3s ease-in-out;
-    opacity: 85%;
-}
+@media (min-width: 1025px) {
 
-header button.start:hover{
-    opacity: 100%;
-    transform: scale(1.03);
+    header button.start {
+        width: 220px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        border-radius: 8px;
+        background: linear-gradient(90deg, #8323FF 0%, #FF2DAF 100%);
+        color: #FFF;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        transition: 0.3s ease-in-out;
+        opacity: 85%;
+    }
+
+    header button.start:hover{
+        opacity: 100%;
+        transform: scale(1.03);
+    }
+
 }
 
 header .icone img {
@@ -181,18 +185,19 @@ header .icone i {
     font-weight: 600;
     line-height: 14.408px;
 }
+
 @media (min-width: 1025px) {
 
-.title span {
-    max-width: 100px;
-    overflow: hidden;
-    color: #FFF;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 100%;
-}
+    .title span {
+        max-width: 100px;
+        overflow: hidden;
+        color: #FFF;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 100%;
+    }
 }
 
 .poster > img {
@@ -281,11 +286,24 @@ header .icone i {
     }
 
     header button.start {
-        padding-top: 5px;
+        width: 220px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        border-radius: 8px;
+        background: linear-gradient(90deg, #8323FF 0%, #FF2DAF 100%);
+        color: #FFF;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        opacity: 85%;
+        transition: 0.3s ease-in-out;
     }
 
-    hedar button.start:hover {
-        transform: none;
+    header button.start:hover {
+        filter: brightness(120%);
     }
 
     .menugens a{
