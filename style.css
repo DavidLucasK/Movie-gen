@@ -181,6 +181,7 @@ header .icone i {
     font-weight: 600;
     line-height: 14.408px;
 }
+@media (min-width: 1025px) {
 
 .title span {
     max-width: 100px;
@@ -191,6 +192,7 @@ header .icone i {
     font-size: 20px;
     font-weight: 500;
     line-height: 100%;
+}
 }
 
 .poster > img {
@@ -278,6 +280,14 @@ header .icone i {
         margin-bottom: 10px;
     }
 
+    header button.start {
+        padding-top: 5px;
+    }
+
+    hedar button.start:hover {
+        transform: none;
+    }
+
     .menugens a{
         width: 200px;
     }
@@ -300,6 +310,24 @@ header .icone i {
         flex: 0 0 100%;
         margin-left: 50px;
         scroll-snap-align: start;
+    }
+
+    .title {
+        max-height: 200px;
+        display: grid;
+    }
+
+    .title span {
+        height: 100px;
+        font-size: 20pt;
+        overflow: hidden;
+        color: #FFF;
+    }
+
+    .title>div {
+        width: 80px;
+        height: 40px;
+        transform: scale(1.50);
     }
 
     body > section.card > div > section > div:nth-child(1) {
