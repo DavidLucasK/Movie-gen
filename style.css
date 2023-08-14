@@ -282,6 +282,7 @@ header .icone i {
     .movie {
         flex: 0 0 100%;
         scroll-snap-align: start;
+        gap: 2rem;
     }
 
     .made {
