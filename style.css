@@ -261,15 +261,22 @@ header .icone i {
 /* Estilos do carrossel apenas para dispositivos móveis */
 @media (max-width: 768px) {
 
+    
     header {
         display: inline;
         justify-content: start;
     }
 
     header .logo {
-        display: flex;
-        justify-content: end;
-        background-color: yellow;
+        margin-left: 58px;
+    }
+
+    header button {
+        max-width: 200px;
+    }
+
+    .menugens a{
+        width: 200px;
     }
 
     .movies {
