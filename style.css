@@ -269,7 +269,7 @@ header .icone i {
     header .logo {
         display: flex;
         justify-content: end;
-        background-color: red;
+        background-color: green;
     }
 
     .movies {
