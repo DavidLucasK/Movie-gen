@@ -106,6 +106,7 @@ button.gen:hover {
     color: #000000;
     width: 100px;
     filter: brightness(140%);
+    cursor: pointer;
 }
 
 header button.start {
@@ -254,5 +255,36 @@ header .icone i {
 @keyframes gerar {
     to {
         transform: rotate(180deg);
+    }
+}
+
+/* Estilos do carrossel apenas para dispositivos móveis */
+@media (max-width: 768px) {
+
+    header {
+        display: inline;
+        justify-content: start;
+    }
+
+    header .logo {
+        display: flex;
+        justify-content: end;
+        background-color: red;
+    }
+
+    .movies {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+    }
+
+    .movie {
+        flex: 0 0 100%;
+        scroll-snap-align: start;
+    }
+
+    .made {
+        display: none;
     }
 }

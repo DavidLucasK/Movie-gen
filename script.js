@@ -460,3 +460,27 @@ async function startDrama() {
   // Substitue o conteúdo dos movies no arquivo HTML
   document.querySelector('.movies').innerHTML = output.join("")
 }
+
+let currentIndex = 0;
+
+function scrollToMovie(index) {
+    const movies = document.querySelectorAll('.movie');
+    if (index >= 0 && index < movies.length) {
+        movies[index].scrollIntoView({ behavior: 'smooth', inline: 'center' });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const prevButton = document.querySelector('.prev-button');
+    const nextButton = document.querySelector('.next-button');
+
+    prevButton.addEventListener('click', () => {
+        currentIndex = Math.max(0, currentIndex - 1);
+        scrollToMovie(currentIndex);
+    });
+
+    nextButton.addEventListener('click', () => {
+        currentIndex = Math.min(currentIndex + 1, document.querySelectorAll('.movie').length - 1);
+        scrollToMovie(currentIndex);
+    });
+});
