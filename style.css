@@ -269,7 +269,7 @@ header .icone i {
     header .logo {
         display: flex;
         justify-content: end;
-        background-color: pink;
+        background-color: yellow;
     }
 
     .movies {
@@ -289,7 +289,10 @@ header .icone i {
         margin-left: 0px;
     }
 
-    .made {
-        display: none;
+    .made p{
+        color: #a68eec;
+        position: fixed;
+        bottom: 0;
+        right: 0;
     }
 }
