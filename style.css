@@ -263,16 +263,19 @@ header .icone i {
 
     
     header {
-        display: inline;
+        display: inline-block;
         justify-content: start;
     }
 
+
     header .logo {
         margin-left: 58px;
+        margin-bottom: 20px;
     }
 
     header button {
         max-width: 200px;
+        margin-bottom: 10px;
     }
 
     .menugens a{
