@@ -99,12 +99,12 @@ button.gen:hover {
     background-color: #4f4f4f;
     color: #ffffff;
     text-decoration: none;
-    width: 100px;
+    width: 220px;
 }
 
 .menugens a:hover{
     color: #000000;
-    width: 100px;
+    width: 220px;
     filter: brightness(140%);
     cursor: pointer;
 }
