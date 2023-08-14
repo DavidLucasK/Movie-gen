@@ -461,6 +461,7 @@ async function startDrama() {
   document.querySelector('.movies').innerHTML = output.join("")
 }
 
+//Carrosel para os movies
 let currentIndex = 0;
 
 function scrollToMovie(index) {
