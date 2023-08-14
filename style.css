@@ -274,6 +274,7 @@ header .icone i {
 
     .movies {
         display: flex;
+        gap: 4rem;
         flex-wrap: nowrap;
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
@@ -282,7 +283,6 @@ header .icone i {
     .movie {
         flex: 0 0 100%;
         scroll-snap-align: start;
-        gap: 2rem;
     }
 
     .made {
