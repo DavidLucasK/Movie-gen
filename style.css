@@ -279,6 +279,13 @@ header .icone i {
         width: 200px;
     }
 
+    .menugens a:hover{
+        color: #000000;
+        width: 200px;
+        filter: brightness(140%);
+        cursor: pointer;
+    }
+
     .movies {
         display: flex;
         flex-wrap: nowrap;
