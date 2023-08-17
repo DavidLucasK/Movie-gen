@@ -24,6 +24,15 @@ button {
     border: none;
 }
 
+header .logo {
+    transition: 0.2s ease-in-out;
+}
+
+header .logo:hover {
+    
+    filter: invert()
+}
+
 .card {
     display: flex;
     flex-direction: column;
@@ -276,7 +285,7 @@ header .icone i {
 
 
     header .logo {
-        margin-left: 58px;
+        margin-left: 55px;
         margin-bottom: 20px;
     }
 
