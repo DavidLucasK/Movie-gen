@@ -25,11 +25,10 @@ button {
 }
 
 header .logo {
-    transition: 0.2s ease-in-out;
+    transition: 0.5s ease-in-out;
 }
 
 header .logo:hover {
-    
     filter: invert()
 }
 
@@ -61,7 +60,7 @@ header .logo:hover {
 .container {
     display: flex;
     flex-direction: column;
-    max-width: 1154px;
+    max-width: 1350px;
 }
 
 header {
@@ -69,6 +68,7 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 36px;
+    padding: 10px
 }
 
 header button.gen {

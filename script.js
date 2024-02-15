@@ -1,3 +1,4 @@
+
 // https://developer.themoviedb.org/reference/movie-popular-list
 async function getMovies() {
   const options = {
@@ -24,6 +25,7 @@ async function getMovies() {
              10749 = Romance
              
 */
+
 async function getMoviesFilter() {
   const options = {
     method: 'GET',
