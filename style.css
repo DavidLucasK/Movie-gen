@@ -104,14 +104,19 @@ button.gen:hover {
 
 .menugens {
     display: none;
+    margin-top: -6px;
     position: absolute;
     z-index: 1;
 }
 
 .menugens a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #4f4f4f;
     color: #ffffff;
     text-decoration: none;
+    height: 35px;
     width: 220px;
 }
 
@@ -245,6 +250,7 @@ header .icone i {
 }
 
 .movie button:hover {
+    cursor: pointer;
     background: #373745;
     transform: scale(1.03);
 }
