@@ -366,6 +366,11 @@ header .icone i {
     .movie button span {
         font-size: 16px;
     }
+
+    .made {
+        position: fixed;
+        z-index: -3;
+    }
 }
 
 /* Responsividade para iPads, tablets */
@@ -440,6 +445,11 @@ header .icone i {
 
     .movie button span {
         font-size: 16px;
+    }
+
+    .made {
+        position: fixed;
+        z-index: -3;
     }
 }
 
@@ -522,6 +532,11 @@ header .icone i {
     .movie button span {
         font-size: 16px;
     }
+
+    .made {
+        position: fixed;
+        z-index: -3;
+    }
 }
 
 /* Carrossel para telas pequenas e laptops */
@@ -580,6 +595,11 @@ header .icone i {
 
     .movie button span {
         font-size: 8.5px;
+    }
+
+    .made {
+        position: fixed;
+        z-index: -3;
     }
 }
 
@@ -641,6 +661,11 @@ header .icone i {
     .movie button span {
         font-size: 8.5px;
     }
+
+    .made {
+        position: fixed;
+        z-index: -3;
+    }
 }
 
 /* Responsividade para desktops e telas grandes */
@@ -661,6 +686,11 @@ header .icone i {
 
     .title>div {
         font-size: 14px;
+    }
+
+    .made {
+        position: fixed;
+        z-index: -3;
     }
 }
 
