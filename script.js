@@ -474,24 +474,28 @@ function scrollToMovie(index) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const prevButton = document.createElement('button');
-    prevButton.classList.add('carousel-button', 'prev-button');
-    prevButton.innerHTML = '&#9664;'; // Left arrow
+  // Seleciona o botão burger e a lista de links mobile
+  const menugen = document.querySelector('.gen');
+  const genlist = document.querySelector('.menugens');
+  const navLinks = genlist.querySelectorAll('.menugens a');
 
-    const nextButton = document.createElement('button');
-    nextButton.classList.add('carousel-button', 'next-button');
-    nextButton.innerHTML = '&#9654;'; // Right arrow
+  genlist.style.display = 'none';
+  // Adiciona um evento de clique ao botão burger
+  menugen.addEventListener('click', () => {
+    // Verifica se a lista de links mobile está visível
+    if (genlist.style.display === 'block') {
+      // Se visível, oculta a lista
+      genlist.style.display = 'none';
+    } else {
+      // Se não visível, exibe a lista
+      genlist.style.display = 'block';
+    }
+  });
 
-    document.querySelector('.movies').appendChild(prevButton);
-    document.querySelector('.movies').appendChild(nextButton);
-
-    prevButton.addEventListener('click', () => {
-        currentIndex = Math.max(0, currentIndex - 1);
-        scrollToMovie(currentIndex);
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      // Oculta a lista de links móveis quando um link é clicado
+      genlist.style.display = 'none';
     });
-
-    nextButton.addEventListener('click', () => {
-        currentIndex = Math.min(currentIndex + 1, document.querySelectorAll('.movie').length - 1);
-        scrollToMovie(currentIndex);
-    });
+  });
 });
