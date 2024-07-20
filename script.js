@@ -463,19 +463,27 @@ async function startDrama() {
   document.querySelector('.movies').innerHTML = output.join("")
 }
 
-//Carrosel para os movies
 let currentIndex = 0;
 
 function scrollToMovie(index) {
     const movies = document.querySelectorAll('.movie');
+    const moviesContainer = document.querySelector('.movies');
     if (index >= 0 && index < movies.length) {
-        movies[index].scrollIntoView({ behavior: 'smooth', inline: 'center' });
+        moviesContainer.style.transform = `translateX(-${index * 100}%)`;
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const prevButton = document.querySelector('.prev-button');
-    const nextButton = document.querySelector('.next-button');
+    const prevButton = document.createElement('button');
+    prevButton.classList.add('carousel-button', 'prev-button');
+    prevButton.innerHTML = '&#9664;'; // Left arrow
+
+    const nextButton = document.createElement('button');
+    nextButton.classList.add('carousel-button', 'next-button');
+    nextButton.innerHTML = '&#9654;'; // Right arrow
+
+    document.querySelector('.movies').appendChild(prevButton);
+    document.querySelector('.movies').appendChild(nextButton);
 
     prevButton.addEventListener('click', () => {
         currentIndex = Math.max(0, currentIndex - 1);
