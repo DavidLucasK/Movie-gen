@@ -147,6 +147,11 @@ header button.start:hover {
     width: 180px;
 }
 
+.menugens a:nth-last-child(1) {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
 .menugens a:hover {
     color: #000000;
     filter: brightness(140%);
@@ -579,26 +584,6 @@ header .icone i {
     .movie button span {
         font-size: 8.5px;
     }
-
-    .carousel-button {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(0, 0, 0, 0.5);
-        border: none;
-        color: white;
-        font-size: 2rem;
-        cursor: pointer;
-        z-index: 1;
-    }
-
-    .prev-button {
-        left: 10px;
-    }
-
-    .next-button {
-        right: 10px;
-    }
 }
 
 /* Carrossel para telas pequenas e laptops */
@@ -658,26 +643,6 @@ header .icone i {
 
     .movie button span {
         font-size: 8.5px;
-    }
-
-    .carousel-button {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(0, 0, 0, 0.5);
-        border: none;
-        color: white;
-        font-size: 2rem;
-        cursor: pointer;
-        z-index: 1;
-    }
-
-    .prev-button {
-        left: 10px;
-    }
-
-    .next-button {
-        right: 10px;
     }
 }
 
