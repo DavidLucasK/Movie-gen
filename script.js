@@ -103,41 +103,41 @@ function createMovieLayout({
   year
 }) {
   return `
-  <div class="movie">
-    <div class="title">
-      <span>${title}</span>
+    <div class="movie">
+      <div class="title">
+        <span>${title}</span>
 
-      <div>
-        <img src="./assets/icons/Star.svg" alt="">
+        <div>
+          <img src="./assets/icons/Star.svg" alt="">
 
-        <p>${stars}</p>
-      </div>
-    </div>
-
-    <div class="poster">
-      <img src="https://image.tmdb.org/t/p/w500${image}" alt="Imagem de ${title}">
-    </div>
-
-    <div class="info">
-      <div class="duration">
-        <img src="./assets/icons/Clock.svg" alt="">
-
-        <span>${time}</span>
+          <p>${stars}</p>
+        </div>
       </div>
 
-      <div class="year">
-        <img src="./assets/icons/calendar-blank.svg" alt="">
-
-        <span>${year}</span>
+      <div class="poster">
+        <img src="https://image.tmdb.org/t/p/w500${image}" alt="Imagem de ${title}">
       </div>
+
+      <div class="info">
+        <div class="duration">
+          <img src="./assets/icons/Clock.svg" alt="">
+
+          <span>${time}</span>
+        </div>
+
+        <div class="year">
+          <img src="./assets/icons/calendar-blank.svg" alt="">
+
+          <span>${year}</span>
+        </div>
+      </div>
+
+      <button onclick="watch(event)" data-id="${id}" data-genre="${genre}">
+        <img src="./assets/icons/Play.svg" alt="">
+
+        <span>Assistir Trailer</span>
+      </button>
     </div>
-
-    <button onclick="watch(event)" data-id="${id}" data-genre="${genre}">
-      <img src="./assets/icons/Play.svg" alt="">
-
-      <span>Assistir Trailer</span>
-    </button>
-  </div>
   `
 }
 
@@ -311,7 +311,7 @@ async function start() {
   document.querySelector('.movies').innerHTML = output.join("")
 }
 
-start()
+start();
 
 // Função que inicia o site
 async function startComedy() {
