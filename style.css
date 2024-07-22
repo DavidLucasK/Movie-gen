@@ -331,21 +331,36 @@ header .icone i {
         height: 90%;
         gap: 1rem;
     }
+
+    .movie .poster {
+        width: 90%;
+    }
+
+    .title {
+       width: 90%;
+    }
     
     .title span {
         max-width: 100%;
-        width: 70%;
+        width: 100%;
+    }
+
+    .title>div {
+        width: 100%;
+        font-size: 14pt;
+        align-items: center;
     }
 
     .movie {
         width: 80%;
         max-width: 300px;
-        margin-left: 35px;
+        margin-left: 50px;
     }
 
     .info {
         justify-content: center;
         gap: 2rem;
+        width: 90%;
         max-width: 100%;
         height: 8%;
     }
@@ -358,7 +373,7 @@ header .icone i {
     }
 
     .movie button {
-        width: 100%;
+        width: 90%;
         height: 10%;
     }
 
