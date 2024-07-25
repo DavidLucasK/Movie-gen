@@ -327,6 +327,7 @@ header .icone i {
     .movies {
         flex-direction: column;
         align-items: center;
+        flex-wrap: wrap;
         overflow-x: scroll;
         height: 90%;
         gap: 1rem;
@@ -422,6 +423,7 @@ header .icone i {
     .movies {
         flex-direction: column;
         gap: 0px;
+        flex-wrap: wrap;
         overflow-x: scroll;
     }
 
@@ -503,6 +505,7 @@ header .icone i {
 
     .movies {
         flex-direction: column;
+        flex-wrap: wrap;
         gap: 0px;
     }
 
