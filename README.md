@@ -1,3 +1,3 @@
 <a href="https://moviegen.vercel.app/">
-  <img src="https://moviegen.vercel.app/assets/movie-gen-background.png">
+  <img src="https://moviegen.vercel.app/assets/moviegen.png">
 </a>
