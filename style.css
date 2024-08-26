@@ -184,9 +184,7 @@ header .icone i {
 
 .poster .img-load {
     width: 100%;
-    height: 0;
-    padding-bottom: 150%;
-    background-color: rgb(73, 73, 73);
+    height: auto;
 }
 
 .poster img {
