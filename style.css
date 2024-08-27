@@ -182,6 +182,17 @@ header .icone i {
     margin: 8px;
 }
 
+.movie .poster {
+    width: 100%;
+    height: 300px; /* Altura fixa para manter o alinhamento */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1E1F28; /* Cor de fundo caso a imagem seja menor */
+    overflow: hidden; /* Para garantir que a imagem não ultrapasse os limites */
+    border-radius: 8px; /* Bordas arredondadas para um visual mais suave */
+}
+
 .poster .img-load {
     width: 100%;
     height: auto;
@@ -190,6 +201,8 @@ header .icone i {
 .poster img {
     width: 100%;
     height: auto;
+    max-width: 100%;
+    object-fit: cover;
 }
 
 .duration,
