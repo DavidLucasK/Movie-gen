@@ -282,6 +282,17 @@ header .icone i {
     right: 0;
 }
 
+.streamings {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.streamings img {
+    max-width: 40px;
+    border-radius: 30px;
+}
+
 @keyframes gradient {
     0% {
         background-position: 0 50%;
@@ -399,6 +410,17 @@ header .icone i {
     .made {
         position: fixed;
         z-index: -3;
+    }
+
+    .streamings {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .streamings img {
+        max-width: 50px;
+        border-radius: 30px;
     }
 }
 

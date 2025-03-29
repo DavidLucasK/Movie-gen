@@ -100,7 +100,8 @@ function createMovieLayout({
   stars,
   image,
   time,
-  year
+  year,
+  streamingImg,
 }) {
   return `
     <div class="movie">
@@ -137,6 +138,11 @@ function createMovieLayout({
 
         <span>Assistir Trailer</span>
       </button>
+      ${
+        Array.isArray(streamingImg) && streamingImg.length > 0 && streamingImg.length < 3
+          ? `<div class="streamings">${streamingImg.map(img => `<img src="${img}" alt="Streaming">`).join('')}</div>`
+          : ''
+      }
     </div>
   `
 }
@@ -236,6 +242,38 @@ async function getMoviesDrama() {
 
 }
 
+async function getStreaming(id) {
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYmU0YzZkNGYyYTQ2YzY3ZTczYmM1MDgzNWU0YjY2MiIsInN1YiI6IjY0Y2IxMzBmNzA2ZTU2MDE0ZWMzZThhNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1hXwniJ4G1OXopv24yN6A3uJnjLAatmHOxChrpp3W_g'
+    }
+  };
+
+  try {
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/watch/providers`, options);
+    const data = await response.json();
+
+    if (!data.results?.BR?.flatrate) {
+      console.log("Nenhuma informação de provedores encontrada para o Brasil.");
+      return null;
+    }
+
+    // Pegar os `logo_path` de cada provedor dentro de `flatrate`
+    const logos = data.results.BR.flatrate.map(provider => `https://image.tmdb.org/t/p/w500${provider.logo_path}`);
+    // const logos = `https://image.tmdb.org/t/p/w500${data.results.BR.flatrate[0].logo_path}`;
+
+    console.log(logos); // Exibe os caminhos das imagens
+    return logos; // Retorna o array com os caminhos das imagens
+
+  } catch (error) {
+    console.error("Erro ao buscar provedores:", error);
+    return null;
+  }
+}
+
+
 // Função que seleciona 5 filmes na API
 function select5Videos(results) {
   const random = ()=> Math.floor(Math.random() * results.length)
@@ -288,7 +326,9 @@ async function start() {
   // pegar randomicamente 5 filmes para sugestão
   const best5 = select5Videos(results).map(async movie => {
   // pegar informações extras do 5 filmes
-  const info = await getMoreInfo(movie)
+  const info = await getMoreInfo(movie);
+
+  const streamings = info?.id ? await getStreaming(info.id) : [];
 
   // organizar os dados para ...
     const props = {
@@ -298,7 +338,8 @@ async function start() {
       stars: Number(info.vote_average).toFixed(1),
       image: info.poster_path,
       time: minutesToHourMinutesAndSeconds(info.runtime),
-      year: info.release_date.slice(0, 4)
+      year: info.release_date.slice(0, 4),
+      streamingImg: streamings
     }
     console.log(props)
     return createMovieLayout(props)
@@ -320,7 +361,7 @@ async function startComedy() {
   // pegar randomicamente 5 filmes para sugestão
   const best5 = select5Videos(results).map(async movie => {
   // pegar informações extras do 5 filmes
-  const info = await getMoreInfo(movie)
+  const info = await getMoreInfo(movie);
 
   // organizar os dados para ...
     const props = {
