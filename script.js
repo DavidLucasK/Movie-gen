@@ -363,6 +363,8 @@ async function startComedy() {
   // pegar informações extras do 5 filmes
   const info = await getMoreInfo(movie);
 
+  const streamings = info?.id ? await getStreaming(info.id) : [];
+
   // organizar os dados para ...
     const props = {
       id: info.id,
@@ -371,7 +373,8 @@ async function startComedy() {
       stars: Number(info.vote_average).toFixed(1),
       image: info.poster_path,
       time: minutesToHourMinutesAndSeconds(info.runtime),
-      year: info.release_date.slice(0, 4)
+      year: info.release_date.slice(0, 4),
+      streamingImg: streamings
     }
     console.log(props)
     return createMovieLayout(props)
@@ -393,6 +396,8 @@ async function startAction() {
   // pegar informações extras do 5 filmes
   const info = await getMoreInfo(movie)
 
+  const streamings = info?.id ? await getStreaming(info.id) : [];
+
   // organizar os dados para ...
     const props = {
       id: info.id,
@@ -401,7 +406,8 @@ async function startAction() {
       stars: Number(info.vote_average).toFixed(1),
       image: info.poster_path,
       time: minutesToHourMinutesAndSeconds(info.runtime),
-      year: info.release_date.slice(0, 4)
+      year: info.release_date.slice(0, 4),
+      streamingImg: streamings
     }
     console.log(props)
     return createMovieLayout(props)
@@ -423,6 +429,8 @@ async function startRomance() {
   // pegar informações extras do 5 filmes
   const info = await getMoreInfo(movie)
 
+  const streamings = info?.id ? await getStreaming(info.id) : [];
+
   // organizar os dados para ...
     const props = {
       id: info.id,
@@ -431,7 +439,8 @@ async function startRomance() {
       stars: Number(info.vote_average).toFixed(1),
       image: info.poster_path,
       time: minutesToHourMinutesAndSeconds(info.runtime),
-      year: info.release_date.slice(0, 4)
+      year: info.release_date.slice(0, 4),
+      streamingImg: streamings
     }
     console.log(props)
     return createMovieLayout(props)
@@ -453,6 +462,8 @@ async function startAnimation() {
   // pegar informações extras do 5 filmes
   const info = await getMoreInfo(movie)
 
+  const streamings = info?.id ? await getStreaming(info.id) : [];
+
   // organizar os dados para ...
     const props = {
       id: info.id,
@@ -461,7 +472,8 @@ async function startAnimation() {
       stars: Number(info.vote_average).toFixed(1),
       image: info.poster_path,
       time: minutesToHourMinutesAndSeconds(info.runtime),
-      year: info.release_date.slice(0, 4)
+      year: info.release_date.slice(0, 4),
+      streamingImg: streamings
     }
     console.log(props)
     return createMovieLayout(props)
@@ -483,6 +495,8 @@ async function startDrama() {
   // pegar informações extras do 5 filmes
   const info = await getMoreInfo(movie)
 
+  const streamings = info?.id ? await getStreaming(info.id) : [];
+
   // organizar os dados para ...
     const props = {
       id: info.id,
@@ -491,7 +505,8 @@ async function startDrama() {
       stars: Number(info.vote_average).toFixed(1),
       image: info.poster_path,
       time: minutesToHourMinutesAndSeconds(info.runtime),
-      year: info.release_date.slice(0, 4)
+      year: info.release_date.slice(0, 4),
+      streamingImg: streamings
     }
     console.log(props)
     return createMovieLayout(props)
