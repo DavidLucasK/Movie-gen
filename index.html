@@ -4,114 +4,145 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gerador de Filmes</title>
-
-    <link rel="stylesheet" href="./style.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css"
-    />
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-
-    <link
-      rel="shortcut icon"
-      href="./assets/icons/Logo-rounded.png"
-      type="image/x-icon"
-    />
-
-    <script src="./script.js" defer></script>
   </head>
+  <link rel="stylesheet" href="./style.css" />
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css"
+  />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
 
   <body>
     <section class="card">
       <div class="container">
         <header>
-          <!-- Logo -->
-          <a href="https://davidlucasfr.com.br" target="_blank">
-            <img
-              src="./assets/icons/Logo-rounded.png"
-              width="100px"
-              class="logo"
-              alt="Logo"
-            />
-          </a>
+          <img src="./assets/Logo.png" alt="Logo" />
 
-          <!-- Botão de gerar filmes -->
-          <button onclick="start()" class="start">
+          <button class="recomendation">
             <p>Nova recomendação</p>
             <div class="icone">
               <img src="./assets/icons/Ellipse 4.png" alt="" />
               <i class="ph ph-lightning" style="color: #ffffff"></i>
             </div>
           </button>
-
-          <!-- Botão de gêneros -->
-          <div class="gen-option">
-            <button class="gen">
-              <p>Gêneros</p>
-              <div class="icone">
-                <img src="./assets/icons/Ellipse 4.png" alt="" />
-                <i class="ph ph-list" style="color: #ffffff"></i>
-              </div>
-            </button>
-            <div class="menugens">
-              <a onclick="start(Number(this.id))" id="35">Comédia</a>
-              <a onclick="start(Number(this.id))" id="28">Ação</a>
-              <a onclick="start(Number(this.id))" id="10749">Romance</a>
-              <a onclick="start(Number(this.id))" id="16">Animação</a>
-              <a onclick="start(Number(this.id))" id="18">Drama</a>
-            </div>
-          </div>
         </header>
-        <section class="movie" id="loading-template" style="display: none">
-          <div class="title">
-            <span>Loading...</span>
-            <div>
-              <img src="./assets/icons/Star.svg" alt="" />
-              <img src="assets/loading.gif" width="20px" alt="Loading Star" />
+
+        <section class="movies">
+          <div class="movie">
+            <div class="title">
+              <span>Barbie</span>
+              <div>
+                <img src="./assets/icons/Star.svg" alt="" />
+
+                <p>4.9</p>
+              </div>
             </div>
+
+            <div class="poster">
+              <img src="./assets/barbie.png" alt="" />
+            </div>
+
+            <div class="info">
+              <div class="duration">
+                <img src="./assets/icons/Clock.svg" alt="" />
+                <span>1:54:00</span>
+              </div>
+
+              <div class="year">
+                <img src="./assets/icons/calendar-blank.svg" alt="" />
+
+                <span>2023</span>
+              </div>
+            </div>
+
+            <button>
+              <img src="./assets/icons/Play.svg" alt="" />
+
+              <span>Assistir Trailer</span>
+            </button>
           </div>
 
-          <div class="poster">
-            <div class="img-load">
-              <div class="poster-teste"></div>
+          <div class="movie">
+            <div class="title">
+              <span>Oppenheimer</span>
+              <div>
+                <img src="./assets/icons/Star.svg" alt="" />
+
+                <p>4.9</p>
+              </div>
             </div>
+
+            <div class="poster">
+              <img src="./assets/oppen.png" alt="" />
+            </div>
+
+            <div class="info">
+              <div class="duration">
+                <img src="./assets/icons/Clock.svg" alt="" />
+                <span>3:00:00</span>
+              </div>
+
+              <div class="year">
+                <img src="./assets/icons/calendar-blank.svg" alt="" />
+
+                <span>2023</span>
+              </div>
+            </div>
+
+            <button>
+              <img src="./assets/icons/Play.svg" alt="" />
+
+              <span>Assistir Trailer</span>
+            </button>
           </div>
 
-          <div class="info">
-            <div class="duration">
-              <img src="./assets/icons/Clock.svg" alt="" />
-              <img src="assets/loading.gif" width="20px" alt="LoadingTrailer" />
+          <div class="movie">
+            <div class="title">
+              <span>Indiana Jones e o Chamado do Destino</span>
+              <div>
+                <img src="./assets/icons/Star.svg" alt="" />
+
+                <p>4.9</p>
+              </div>
             </div>
 
-            <div class="year">
-              <img src="./assets/icons/calendar-blank.svg" alt="" />
-              <img src="assets/loading.gif" width="20px" alt="LoadingTrailer" />
+            <div class="poster">
+              <img src="./assets/indiana.png" alt="" />
             </div>
-          </div>
 
-          <button class="watch-trailer">
-            <img src="./assets/icons/Play.svg" alt="" />
-            <span>Assistir Trailer</span>
-          </button>
-          <div class="streamings">
-            <div class="streaming-placeholder"></div>
-            <div class="streaming-placeholder"></div>
+            <div class="info">
+              <div class="duration">
+                <img src="./assets/icons/Clock.svg" alt="" />
+                <span>2:22:00</span>
+              </div>
+
+              <div class="year">
+                <img src="./assets/icons/calendar-blank.svg" alt="" />
+
+                <span>2023</span>
+              </div>
+            </div>
+
+            <button>
+              <img src="./assets/icons/Play.svg" alt="" />
+
+              <span>Assistir Trailer</span>
+            </button>
           </div>
         </section>
-        <section class="movies"></section>
       </div>
     </section>
-
-    <section id="made" class="made">
-      <p>Made by: DavidLucasK</p>
-    </section>
+    <!-- <i class="ph ph-clock" style="color: #8B8D9B"></i>
+    <i class="ph ph-calendar-blank" style="color: #8B8D9B"></i>
+    <i class="ph ph-lightning" style="color: #8B8D9B"></i>
+    <i class="ph ph-circle-notch" style="color: #8B8D9B"></i> -->
   </body>
 </html>
